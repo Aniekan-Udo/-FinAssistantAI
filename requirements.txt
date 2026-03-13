@@ -5,6 +5,7 @@ langchain-community
 langchain-groq
 sentence-transformers
 llama-index 
+llama_index 
 llama-index-embeddings-huggingface
 langchain
 langgraph
