@@ -1,0 +1,15 @@
+langchain-chroma
+langchain-text-splitters
+langchain-huggingface
+langchain-community
+langchain-groq
+sentence-transformers
+langchain
+langgraph
+yfinance
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+pydantic
+pypdf

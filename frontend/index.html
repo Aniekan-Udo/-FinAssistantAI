@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Financial Research Assistant</title>
+    <meta name="description" content="Next-generation financial research assistant with real-time stock data and custom knowledge base integration.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script> <!-- Placeholder for FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span>FinAssistant<span>AI</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#chat">Terminal</a>
+                <div id="api-status" class="status-indicator">
+                    <span class="dot"></span>
+                    <span class="text">API: Connecting...</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <h1 class="animate-up">Intelligent Financial <span class="gradient-text">Research</span> at Scale</h1>
+                <p class="animate-up delay-1">Combine real-time market data with your private knowledge base. The ultimate tool for institutional and retail investors seeking clarity in the noise.</p>
+                <div class="hero-btns animate-up delay-2">
+                    <button id="start-btn" class="btn btn-primary">Start Researching</button>
+                    <button class="btn btn-secondary">View Documentation</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Real-time Data</h3>
+                    <p>Live stock prices, news, and financial grades powered by Yahoo Finance APIs.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-file-pdf"></i>
+                    <h3>Knowledge RAG</h3>
+                    <p>Upload your own PDF documents to create a custom, searchable knowledge base.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Smart Routing</h3>
+                    <p>Advanced LLM routing automatically determines the best source for your query.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="chat" class="chat-section container">
+            <div class="section-header">
+                <h2>Research Terminal</h2>
+                <div class="doc-status" id="doc-status-panel">
+                    <i class="fas fa-file-invoice"></i>
+                    <span id="current-doc-name">No knowledge base active</span>
+                    <div class="header-actions">
+                        <button id="upload-trigger" title="Upload Document"><i class="fas fa-upload"></i></button>
+                        <button id="delete-doc-btn" class="danger-icon" title="Delete Knowledge Base" style="display: none;"><i class="fas fa-trash-alt"></i></button>
+                        <div class="divider"></div>
+                        <button id="clear-chat-btn" title="Clear Chat"><i class="fas fa-eraser"></i></button>
+                    </div>
+                    <input type="file" id="file-upload" hidden accept=".pdf">
+                </div>
+            </div>
+
+            <div class="terminal-window glass">
+                <div class="terminal-content" id="chat-messages">
+                    <div class="message bot-message">
+                        Hello! I am your AI Financial Research Assistant. I can help with real-time stock analysis or answer questions based on your uploaded documents. What would you like to explore today?
+                    </div>
+                </div>
+                
+                <div class="chat-input-area">
+                    <div class="example-queries" id="example-queries">
+                        <!-- Example queries will be inserted here -->
+                    </div>
+                    <form id="query-form" class="input-container">
+                        <input type="text" id="user-input" placeholder="Ask about MSFT earnings, AAPL price, or your documents..." required>
+                        <button type="submit" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 AI Financial Research Assistant. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
