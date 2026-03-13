@@ -4,6 +4,8 @@ langchain-huggingface
 langchain-community
 langchain-groq
 sentence-transformers
+llama-index 
+llama-index-embeddings-huggingface
 langchain
 langgraph
 yfinance
