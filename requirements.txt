@@ -10,6 +10,7 @@ langgraph
 llama-index-core>=0.14,<0.15
 llama-index-readers-file>=0.7
 llama-index-embeddings-fastembed>=0.7
+fastembed>=0.9
 llama-index-vector-stores-postgres>=0.9
 psycopg2-binary
 sqlalchemy
