@@ -139,6 +139,15 @@ class VersionTracker:
         finally:
             session.close()
     
+    def delete_version(self, user_id: str, version: str):
+        """Remove a version whose index build failed, so the next request rebuilds it"""
+        session = self.Session()
+        try:
+            session.query(IndexVersion).filter_by(user_id=user_id, version=version).delete()
+            session.commit()
+        finally:
+            session.close()
+
     def get_table_name(self, user_id: str, version: str) -> str:
         """Get table name for version"""
         return f"rag_{user_id}_{version}"
@@ -282,7 +291,12 @@ class RagIndexOrchestrator:
             vector_store = VectorStoreFactory.create_pgvector_store(self.table_name)
             
             # Step 4: Build index
-            index = self.index_builder.build_index(documents, vector_store)
+            try:
+                index = self.index_builder.build_index(documents, vector_store, insert=is_new)
+            except Exception:
+                if is_new:
+                    self.version_tracker.delete_version(self.config.user_id, self.version)
+                raise
             
             # Step 5: Cache the index
             _vectorstore_cache[cache_key] = index

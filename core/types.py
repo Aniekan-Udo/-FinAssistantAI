@@ -41,7 +41,7 @@ class CustomerAction(BaseModel):
     """Handle customer financial research requests."""
     
     get_company_info: bool = Field(default=False, description="True if user wants company information")
-    get_dividend_earnings: bool = Field(default=False, description="True if user wants dividend dates")
+    get_dividend_earnings: bool = Field(default=False, description="True if user wants dividend dates or upcoming earnings report dates")
     search_knowledge_base: bool = Field(default=False, description="True if user has questions about the platform knowledge base")
     get_mutual_fund_holders: bool = Field(default=False, description="True if user wants mutual fund holders")
     get_institutional_holders: bool = Field(default=False, description="True if user wants institutional holders")

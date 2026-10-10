@@ -1,0 +1,10 @@
+{"query": "Do you charge anything to open an account?", "tool": "Platform Knowledge Base", "expect": ["free"]}
+{"query": "What proof do I need for a Tier 3 account?", "tool": "Platform Knowledge Base", "expect": ["address"]}
+{"query": "How long does identity verification take?", "tool": "Platform Knowledge Base", "expect": ["24"]}
+{"query": "What interest can I earn on dollar savings?", "tool": "Platform Knowledge Base", "expect": ["6%"]}
+{"query": "Where do I escalate a complaint that support hasn't resolved?", "tool": "Platform Knowledge Base", "expect": ["complaints@naijavest.example"]}
+{"query": "What's the management fee on the money market fund?", "tool": "Platform Knowledge Base", "expect": ["1%"]}
+{"query": "What is IBM's stock price today?", "tool": "Stock Price"}
+{"query": "What industry is Shopify in?", "tool": "Company Information"}
+{"query": "When is Microsoft's next earnings call?", "tool": "Dividend & Earnings"}
+{"query": "Give me the latest headlines for Disney", "tool": "Stock News"}

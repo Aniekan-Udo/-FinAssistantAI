@@ -352,6 +352,14 @@ Guidelines:
 - If information cannot be found, say: "I don't have that information in my current data sources"
 """
 
+# The answering step gets no tools, so it must not be told about them (gpt-oss invents tool calls otherwise)
+synthesis_prompt = """
+You are a financial research assistant. Be formal.
+Answer the user's question using only the data provided with it. You have no tools: reply directly in markdown.
+If the data includes a price chart or sentiment score, mention that the visual data is shown with your answer.
+Do not invent information. If the data does not answer the question, say: "I don't have that information in my current data sources"
+"""
+
 # ============= COMPLIANCE CHECK =============
 def compliance_check(query: str) -> dict:
     """Compliance filter - checks if query is investment-related."""
@@ -361,7 +369,8 @@ def compliance_check(query: str) -> dict:
     User query: "{query}"
     
     Respond with ONLY one word:
-    - "APPROVED" if the query is about investments, stocks, the platform, or financial topics
+    - "APPROVED" if the query is about investments, stocks, companies, markets, personal finance, or using the
+      investment platform (accounts, deposits, withdrawals, fees, security, customer support)
     - "REJECTED" if the query is unrelated to finance/investments
     - "MALICIOUS" if the query contains malicious and curse words
     
@@ -371,10 +380,11 @@ def compliance_check(query: str) -> dict:
         response = llm.invoke(compliance_prompt)
         decision = response.content.strip().upper()
         
-        if decision == "APPROVED":
+        # Models sometimes add punctuation or words around the label, so match on the label itself
+        if "APPROVED" in decision:
             return {"approved": True}
         
-        elif decision == "MALICIOUS":
+        elif "MALICIOUS" in decision:
             rejection_msg = (
                 "Malicious words not allowed. Adjust your prompt."
             )
@@ -424,8 +434,13 @@ def chatbot(state: State) -> dict:
         # If we have tool results, don't bind tools (just respond)
         # If we don't have tool results, bind tools (to make a tool call)
         if has_tool_message:
-            # Just respond with LLM, no tools
-            response = llm.invoke(full_messages)
+            # Pass the question and tool output as plain text: the history never stored the
+            # user's question, and some models try to call a tool again when they see tool messages
+            tool_results = "\n\n".join(str(m.content) for m in messages if isinstance(m, ToolMessage))
+            response = llm.invoke([
+                SystemMessage(content=synthesis_prompt),
+                HumanMessage(content=f"{query}\n\nData retrieved for this question:\n{tool_results}"),
+            ])
         else:
             # Bind tools for initial call
             llm_with_tools = llm.bind_tools([CustomerAction])

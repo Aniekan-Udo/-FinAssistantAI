@@ -1,4 +1,7 @@
 from datetime import date
+from urllib.parse import quote_plus
+from urllib.request import Request, urlopen
+from xml.etree import ElementTree
 import yfinance as yf
 
 class StockDataFetcher():
@@ -40,11 +43,47 @@ class StockDataFetcher():
         hist_splits = self.ticker_obj.get_splits()
         return hist_splits.to_dict()
 
-    def _stock_news(self) -> dict:
-        return self.ticker_obj.get_news()
+    def _stock_news(self, limit: int = 8) -> list:
+        """Latest headlines as [{title, summary, published, link}]; falls back to Yahoo's RSS feed
+        because yfinance's news endpoint can come back empty."""
+        items = []
+        for raw in self.ticker_obj.get_news() or []:
+            content = raw.get("content", raw)  # newer yfinance nests fields under "content"
+            items.append({
+                "title": content.get("title"),
+                "summary": content.get("summary", ""),
+                "published": content.get("pubDate") or content.get("providerPublishTime"),
+                "link": (content.get("canonicalUrl") or {}).get("url") or content.get("link"),
+            })
+        if items:
+            return items[:limit]
+
+        url = f"https://feeds.finance.yahoo.com/rss/2.0/headline?s={quote_plus(self.ticker)}&region=US&lang=en-US"
+        req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        root = ElementTree.fromstring(urlopen(req, timeout=15).read())
+        return [
+            {
+                "title": item.findtext("title"),
+                "summary": item.findtext("description") or "",
+                "published": item.findtext("pubDate"),
+                "link": item.findtext("link"),
+            }
+            for item in root.findall(".//item")[:limit]
+        ]
 
     def _stock_info(self) -> dict:
-        return self.ticker_obj.get_analyst_price_targets()
+        """Live quote plus analyst targets, labelled so the LLM can't confuse the two."""
+        quote = self.ticker_obj.fast_info
+        return {
+            "live_quote": {
+                "last_price": round(quote.last_price, 2),
+                "day_high": round(quote.day_high, 2),
+                "day_low": round(quote.day_low, 2),
+                "previous_close": round(quote.previous_close, 2),
+                "currency": quote.currency,
+            },
+            "analyst_12_month_price_targets": self.ticker_obj.get_analyst_price_targets(),
+        }
 
     def _stock_history(self, period="1mo") -> dict:
         """Fetch historical price data for charting."""

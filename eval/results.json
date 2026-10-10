@@ -1,0 +1,358 @@
+{
+  "summary": {
+    "base_url": "http://localhost:8000",
+    "cases": 30,
+    "errors": 0,
+    "routing_accuracy": 0.9,
+    "kb_answer_accuracy": 0.6,
+    "latency_p50_s": 4.725060999999187,
+    "latency_p95_s": 7.311841499998991
+  },
+  "rows": [
+    {
+      "query": "How do I create an account?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "BVN"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 13.63850040000034,
+      "error": null,
+      "answer": "**Creating a NaijaVest Account**\n\n1. **Access the platform**  \n   - Download the NaijaVest mobile app **or** visit the NaijaVest web dashboard.  \n\n2. **Start the registration process**  \n   - Tap the **\u201cSign up\u201d** button.  \n\n3. **Provide the required information**  \n   - A **valid email address**  \n   - A **Nigerian phone number**  \n   - Your **Bank Verification Number (BVN)**  \n\n4. **Select the account tier** (optional at sign\u2011up)  \n   - **Tier\u202f1** \u2013 Only BVN required; daily deposit limit up to **\u20a6300,000**.  \n   - **Tier\u202f2** \u2013 In addition to BVN, you must upload a **government\u2011issued ID** (NIN slip, international passport, driver\u2019s licence, or voter\u2019s card); daily deposit limit up to **\u20a65,000,000**.  \n   - **Tier\u202f3** \u2013 Requires proof of address dated within the last 3\u202fmonths; no daily deposit limit.  \n\n5. **Complete identity verification**  \n   - Verification typically finishes within **24\u202fhours**.  \n   - If verification exceeds **48\u202fhours**, contact support at **support@naijavest.example**.  \n\nAccounts are opened in under **5\u202fminutes** after the initial sign\u2011up, subject to the verification timeline above."
+    },
+    {
+      "query": "What is the daily deposit limit for a Tier 1 account?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "300,000"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": false,
+      "seconds": 4.492816799996945,
+      "error": null,
+      "answer": "I don't have that information in my current data sources."
+    },
+    {
+      "query": "Which documents do I need for Tier 2 verification?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "passport"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 4.692231300003186,
+      "error": null,
+      "answer": "For Tier\u202f2 verification, you must provide a **government\u2011issued identification document**. Acceptable forms of ID are:\n\n- NIN slip  \n- International passport  \n- Driver\u2019s licence  \n- Voter\u2019s card  \n\nThese documents satisfy the requirements for completing Tier\u202f2 verification."
+    },
+    {
+      "query": "How much does it cost to deposit with my debit card?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "1.5%"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": false,
+      "seconds": 4.795707400000538,
+      "error": null,
+      "answer": "The fee for depositing funds with a debit card is **1.5\u202f% of the deposit amount, up to a maximum of \u20a62,000**.  \n\n(Deposits made via bank transfer or USSD are free, and the minimum deposit amount is \u20a61,000.)"
+    },
+    {
+      "query": "What is the minimum deposit?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "1,000"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 4.211795499999425,
+      "error": null,
+      "answer": "The minimum deposit is **\u20a61,000**."
+    },
+    {
+      "query": "If I request a withdrawal at 4pm, when will I get paid?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "next business day"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 4.745583500000066,
+      "error": null,
+      "answer": "A withdrawal request made at **4\u202fpm WAT** falls after the 2:00\u202fpm cutoff. According to the platform\u2019s policy, withdrawals requested **after 2:00\u202fpm on a business day are paid on the next business day**. Therefore, you will receive the funds on the following business day."
+    },
+    {
+      "query": "How many free withdrawals do I get each month?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "3"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 4.790057300000626,
+      "error": null,
+      "answer": "According to the information provided, **you receive three (3) free withdrawals each month**. After the third withdrawal in a given month, each additional withdrawal incurs a fee of \u20a6100."
+    },
+    {
+      "query": "What happens if I break my fixed savings plan early?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "2%"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": false,
+      "seconds": 4.704538499998307,
+      "error": null,
+      "answer": "If you withdraw money from a **Fixed Savings Plan** before the agreed\u2011upon maturity date, the platform will allow the early exit **only after applying a 2\u202f% penalty on the principal amount** of the plan. In other words, the full principal is not returned; 2\u202f% of it is deducted as an early\u2011exit charge.  \n\nNo other fees (such as the \u20a6100 per\u2011withdrawal fee) apply to this early\u2011exit penalty; the penalty is specific to breaking the fixed\u2011term contract before it matures."
+    },
+    {
+      "query": "What yield does the money market fund target?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "18"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 3.941869400001451,
+      "error": null,
+      "answer": "The NaijaVest Money Market Fund targets a yield of **18\u202f% to 21\u202f% per year**."
+    },
+    {
+      "query": "What is the minimum amount to buy US stocks on the platform?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "$5"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 4.244876800003112,
+      "error": null,
+      "answer": "The platform allows you to purchase fractional shares of U.S.-listed companies with a **minimum investment of\u202f$5** per order. This amount is specified in the platform\u2019s FAQ for US Stocks."
+    },
+    {
+      "query": "What brokerage commission do you charge on NGX trades?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "0.75%"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": false,
+      "seconds": 4.08533670000179,
+      "error": null,
+      "answer": "The brokerage commission for trades on the Nigerian Exchange (NGX) is **0.75\u202f% per trade**."
+    },
+    {
+      "query": "How do I freeze my account if I think I've been hacked?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "Freeze account"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 4.97337410000182,
+      "error": null,
+      "answer": "If you suspect that your NaijaVest account has been compromised, you can freeze it immediately by following these steps:\n\n1. **Open the app or web dashboard** and go to **Settings**.  \n2. Select **Security**.  \n3. Tap **Freeze account**. This action disables all account activity instantly.  \n\nAfter freezing the account, it is advisable to:\n\n- **Enable two\u2011factor authentication** (still under Settings\u202f\u2192\u202fSecurity) to add an extra layer of protection.  \n- **Contact NaijaVest support** to report the unauthorized access and receive further assistance. You can reach support via:  \n  - **Live chat** in the app (8:00\u202fam\u202f\u2013\u202f8:00\u202fpm\u202fWAT, Monday\u2011Saturday)  \n  - **Email:** support@naijavest.example (target response time: 4 business hours)  \n\nThese steps will help secure your account while the support team investigates the incident."
+    },
+    {
+      "query": "What are live chat support hours?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "8:00"
+      ],
+      "tool_used": null,
+      "routed_ok": false,
+      "answer_ok": false,
+      "seconds": 2.5669087000023865,
+      "error": null,
+      "answer": "I'm a financial research assistant focused on investment topics and the platform's knowledge base. I can help with stock information, company data, and platform-related questions."
+    },
+    {
+      "query": "How does the referral bonus work?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "20,000"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": true,
+      "seconds": 5.255152099998668,
+      "error": null,
+      "answer": "**Referral Bonus Mechanism**\n\n1. **Invitation** \u2013 Share your unique referral code with a friend.  \n2. **Eligibility Trigger** \u2013 The referred friend must:\n   * Complete **Tier\u202f2 verification**, and  \n   * Make an investment of **at least \u20a620,000**.  \n\n3. **Reward Distribution** \u2013 Once the above conditions are met, **both** you and the referred friend receive **\u20a61,000** credited to your respective NaijaVest wallets.\n\n4. **Annual Cap** \u2013 Each user can earn a maximum of **50 referral bonuses per year** (i.e., up to \u20a650,000 in total rewards).\n\nThese are the only conditions required for the referral bonus to be awarded."
+    },
+    {
+      "query": "What is the FX spread when buying US stocks?",
+      "tool": "Platform Knowledge Base",
+      "expect": [
+        "1%"
+      ],
+      "tool_used": "Platform Knowledge Base",
+      "routed_ok": true,
+      "answer_ok": false,
+      "seconds": 4.368219500000123,
+      "error": null,
+      "answer": "The foreign\u2011exchange (FX) spread applied when purchasing U.S. stocks is **1\u202f%** of the transaction amount. This 1\u202f% spread is added to the prevailing FX rate at the time of purchase."
+    },
+    {
+      "query": "What is the current price of AAPL?",
+      "tool": "Stock Price",
+      "tool_used": "Stock Price",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 6.08496390000073,
+      "error": null,
+      "answer": "**Current price of AAPL:**\u202f$336.64\u202fUSD (as per the latest live quote)."
+    },
+    {
+      "query": "How much is Nvidia stock trading for right now?",
+      "tool": "Stock Price",
+      "tool_used": "Stock Price",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 4.69114239999908,
+      "error": null,
+      "answer": "**Current Nvidia (NVDA) Stock Price**\n\n- **Last Traded Price:** **$229.28 USD**  \n- **Day High:** $233.92  \n- **Day Low:** $229.11  \n- **Previous Close:** $230.48  \n\nThe stock is presently trading at **$229.28** per share."
+    },
+    {
+      "query": "Tell me about Microsoft's business",
+      "tool": "Company Information",
+      "tool_used": "Company Information",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 3.8925276000009035,
+      "error": null,
+      "answer": "I don't have that information in my current data sources."
+    },
+    {
+      "query": "What does Tesla do as a company?",
+      "tool": "Company Information",
+      "tool_used": null,
+      "routed_ok": false,
+      "answer_ok": null,
+      "seconds": 2.692887099998188,
+      "error": null,
+      "answer": "I'm a financial research assistant focused on investment topics and the platform's knowledge base. I can help with stock information, company data, and platform-related questions."
+    },
+    {
+      "query": "When is the next dividend date for Coca-Cola (KO)?",
+      "tool": "Dividend & Earnings",
+      "tool_used": "Dividend & Earnings",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 3.909097499999916,
+      "error": null,
+      "answer": "The next dividend payment for Coca\u2011Cola (KO) is scheduled for **October\u202f1,\u202f2026**."
+    },
+    {
+      "query": "When does Apple report earnings next?",
+      "tool": "Dividend & Earnings",
+      "tool_used": "Company Information",
+      "routed_ok": false,
+      "answer_ok": null,
+      "seconds": 3.8076599999985774,
+      "error": null,
+      "answer": "I don't have that information in my current data sources."
+    },
+    {
+      "query": "Who are the top mutual fund holders of MSFT?",
+      "tool": "Mutual Fund Holders",
+      "tool_used": "Mutual Fund Holders",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 5.759899600001518,
+      "error": null,
+      "answer": "**Top mutual\u2011fund holders of Microsoft Corp. (MSFT)**  \n*(based on the most recent reporting dates in the supplied data)*  \n\n| Rank | Mutual\u2011Fund Holder | % of MSFT Shares Held | Shares Held | Approx. Market Value* |\n|------|--------------------|-----------------------|-------------|-----------------------|\n| 1 | **Vanguard Total Stock Market Index Fund** (Vanguard Index Funds) | **0.0318\u202f%** | 235,826,465 | **$126.18\u202fB** |\n| 2 | **Vanguard 500 Index Fund** (Vanguard Index Funds) | **0.0259\u202f%** | 192,500,254 | $103.00\u202fB |\n| 3 | **Fidelity 500 Index Fund** (Fidelity Concord Street Trust) | **0.0130\u202f%** | 96,427,785 | $51.60\u202fB |\n| 4 | **Vanguard Growth Index Fund** (Vanguard Index Funds) | **0.0104\u202f%** | 77,425,468 | $41.43\u202fB |\n| 5 | **Vanguard Institutional Index Fund** (Vanguard Institutional Index Funds) | **0.0054\u202f%** | 40,326,485 | $21.58\u202fB |\n| 6 | **Vanguard Information Technology Index Fund** (Vanguard World Fund) | **0.0049\u202f%** | 36,085,837 | $19.31\u202fB |\n| 7 | **Growth Fund of America** | **0.0044\u202f%** | 32,629,664 | $17.46\u202fB |\n\n\\*Values are shown in U.S. dollars and reflect the market value at the reporting date indicated for each holder.\n\n**Notes**\n\n* The data includes holdings reported on 30\u202fJune\u202f2026 (for most Vanguard funds) and 31\u202fAugust\u202f2026 (for Fidelity and other funds).  \n* Only mutual\u2011fund entities are listed; exchange\u2011traded funds (e.g., iShares Core S&P\u202f500 ETF, SPDR S&P\u202f500 ETF Trust, Invesco QQQ Trust) are excluded from this ranking.  \n\nThese seven mutual funds constitute the largest mutual\u2011fund ownership positions in Microsoft as of the dates provided."
+    },
+    {
+      "query": "Which institutions own the most TSLA shares?",
+      "tool": "Institutional Holders",
+      "tool_used": "Institutional Holders",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 4.701644500000839,
+      "error": null,
+      "answer": "**Top Institutional Holders of Tesla, Inc. (TSLA) \u2013\u202fas of the most recent reporting date (June\u202f30\u202f2026)**  \n\n| Rank | Institution (Holder)                     | Shares Held | % of Outstanding Shares |\n|------|------------------------------------------|------------:|------------------------:|\n| 1    | Blackrock Inc.                           | 214,123,129 | 5.42\u202f% |\n| 2    | Vanguard Capital Management LLC         | 184,023,551 | 4.66\u202f% |\n| 3    | State Street Corporation                 | 117,456,756 | 2.97\u202f% |\n| 4    | Geode Capital Management, LLC           | 68,914,720  | 1.74\u202f% |\n| 5    | Invesco Ltd.                             | 55,464,442  | 1.40\u202f% |\n| 6    | Vanguard Portfolio Management LLC       | 49,550,535  | 1.25\u202f% |\n| 7    | Capital World Investors                  | 45,735,669  | 1.16\u202f% |\n| 8    | JPMORGAN CHASE & CO                      | 41,972,287  | 1.06\u202f% |\n| 9    | FMR, LLC (Fidelity)                      | 39,766,224  | 1.01\u202f% |\n| 10   | Morgan Stanley                           | 38,872,087  | 0.98\u202f% |\n\n**Interpretation**\n\n- **Blackrock Inc.** is the largest single institutional shareholder, holding roughly **214\u202fmillion shares**, which represents **5.42\u202f%** of Tesla\u2019s outstanding share count.\n- The next two holders, **Vanguard Capital Management LLC** and **State Street Corporation**, hold **184\u202fmillion** and **117\u202fmillion** shares respectively, each below the 5\u202f% threshold but still significant.\n- All listed institutions own **more than 0.9\u202f%** of the company, indicating a broadly diversified institutional ownership base.\n\n*The figures above are extracted directly from the provided dataset; no additional sources were consulted.*"
+    },
+    {
+      "query": "What are the recent analyst upgrades and downgrades for GOOGL?",
+      "tool": "Stock Grades",
+      "tool_used": "Stock Grades",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 5.152689499998814,
+      "error": null,
+      "answer": "**Recent Analyst Actions for GOOGL**\n\n| Firm                | Action | From Grade | To Grade   | Price Target Change |\n|---------------------|--------|------------|------------|---------------------|\n| Freedom Broker      | Downgrade | Buy        | Hold       | Raised from **$365** to **$400** |\n| Wells Fargo         | Upgrade   | Equal\u2011Weight| Overweight | Raised from **$354** to **$387** |\n| Cantor Fitzgerald   | Upgrade   | Neutral    | Overweight | Raised from **$310** to **$370** |\n\n- **Upgrades:** Wells Fargo and Cantor Fitzgerald moved their ratings higher (to *Overweight*).  \n- **Downgrades:** Freedom Broker reduced its rating from *Buy* to *Hold*.  \n\nThese are the latest analyst rating changes for Alphabet Inc. (GOOGL) based on the data provided."
+    },
+    {
+      "query": "Show me the stock split history of NVDA",
+      "tool": "Stock Splits",
+      "tool_used": "Stock Splits",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 5.047080899999855,
+      "error": null,
+      "answer": "**NVIDIA Corporation (NVDA) \u2013 Stock Split History**\n\n| Split Date (Eastern Time) | Split Ratio |\n|---------------------------|-------------|\n| June\u202f27\u202f2000              | 2\u2011for\u20111 |\n| September\u202f12\u202f2001         | 2\u2011for\u20111 |\n| April\u202f7\u202f2006              | 2\u2011for\u20111 |\n| September\u202f11\u202f2007         | 3\u2011for\u20112 (1.5\u2011for\u20111) |\n| July\u202f20\u202f2021              | 4\u2011for\u20111 |\n| June\u202f10\u202f2024              | 10\u2011for\u20111 |\n\nThese entries represent all recorded stock splits for NVIDIA (ticker: NVDA) in the supplied data set. No visual chart is available in the current data."
+    },
+    {
+      "query": "Any recent news about Amazon?",
+      "tool": "Stock News",
+      "tool_used": "Stock News",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 7.311841499998991,
+      "error": null,
+      "answer": "**Recent News on Amazon (AMZN) \u2013 10\u202fOctober\u202f2026**\n\n| Date (UTC) | Title | Key Points |\n|------------|-------|------------|\n| 17:20\u202f| *Amazon (AMZN) Is Spending Billions on AI and Driver Pay. Will the Investments Pay Off?* | Amazon is intensifying its AI infrastructure build\u2011out, planning to add **2\u202fmillion NVIDIA GPUs** in 2027\u20112028 and expanding AI\u2011enabled security and routing solutions. The article also notes increased driver compensation. |\n| 17:12\u202f| *Amazon.com (AMZN) Patched Critical AWS Bedrock AgentCore Security Flaws* | Zenity Labs disclosed a critical vulnerability in AWS\u202fBedrock AgentCore that could expose internal data and cloud credentials via a malicious prompt. Amazon has since mitigated the issue. The piece also mentions a recent reduction of ~1,000 jobs while hiring heavily for AI roles. |\n| 17:00\u202f| *Amazon Fuel Up Fridays Returns: How Prime Members Can Save Big at the Gas Pump* | Prime members are offered a limited\u2011time discount on gasoline through the \u201cFuel Up Fridays\u201d program. |\n| 15:11\u202f| *Consumer AI agents could upend online shopping \u2013 but who really wins?* | Analysts at Bernstein see payments processors (Visa, Mastercard, Stripe, Adyen, Checkout) as potential beneficiaries of increased AI\u2011driven online transactions. |\n| 15:05\u202f| *Investor Predicts Anthropic Could Be \u201cthe First\u201d $10\u202fTrillion Company. Cue the Amazon + Google Payday* | While focusing on Anthropic, the commentary highlights possible downstream gains for major cloud providers such as Amazon and Google. |\n| 11:30\u202f| *AWS CEO Says AI Spending Isn\u2019t a Bubble Just Yet* | AWS chief Matt Garman, on a16z\u2019s podcast, downplays concerns of an AI\u2011spending bubble, citing early returns for enterprise customers. He contrasts this view with Ray Dalio\u2019s warning about a potential boom\u2011to\u2011bust cycle. |\n| 05:13\u202f| *Amazon Reshuffles Alexa Leadership: Can Alexa+ Move a $53\u202fBillion Subscription Business?* | Amazon announced a leadership change for Alexa a day after unveiling its first high\u2011end Alexa tablet, aiming to grow the estimated **$53\u202fB** subscription ecosystem. |\n| 04:19\u202f| *Amazon\u2019s Thane Data Center Fight: A $8.3\u202fBillion Plan Inside a $173\u202fBillion Capex Budget* | Local opposition in India is challenging Amazon\u2019s planned data\u2011center campus in Thane (near Mumbai). The project is part of a **$173\u202fB** capital\u2011expenditure budget, with the Thane site valued at **$8.3\u202fB**. |\n\nThese items constitute the most recent publicly reported developments concerning Amazon as of 10\u202fOctober\u202f2026."
+    },
+    {
+      "query": "Show me a price chart of AMD over the last few months",
+      "tool": "Price History Chart",
+      "tool_used": "Price History Chart",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 5.092364899999666,
+      "error": null,
+      "answer": "**AMD Price Chart (Last Few Months)**  \n\nThe visual price chart for AMD is shown below, based on the provided data points.\n\n| Date       | Closing Price (USD) |\n|------------|---------------------|\n| 2026\u201109\u201110 | 503.60 |\n| 2026\u201109\u201111 | 516.13 |\n| 2026\u201109\u201114 | 493.41 |\n| 2026\u201109\u201115 | 504.20 |\n| 2026\u201109\u201116 | 512.50 |\n| 2026\u201109\u201117 | 545.09 |\n| 2026\u201109\u201118 | 559.82 |\n| 2026\u201109\u201121 | 615.52 |\n| 2026\u201109\u201122 | 623.77 |\n| 2026\u201109\u201123 | 614.61 |\n| 2026\u201109\u201124 | 629.26 |\n| 2026\u201109\u201125 | 630.63 |\n| 2026\u201109\u201128 | 607.87 |\n| 2026\u201109\u201129 | 607.57 |\n| 2026\u201109\u201130 | 611.76 |\n| 2026\u201110\u201101 | 615.73 |\n| 2026\u201110\u201102 | 633.91 |\n| 2026\u201110\u201105 | 631.75 |\n| 2026\u201110\u201106 | 649.42 |\n| 2026\u201110\u201107 | 645.86 |\n| 2026\u201110\u201108 | 620.68 |\n| 2026\u201110\u201109 | 608.10 |\n\n*The chart visualizes AMD\u2019s price movement over the listed dates.*"
+    },
+    {
+      "query": "How has META stock performed historically?",
+      "tool": "Price History Chart",
+      "tool_used": "Price History Chart",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 5.822337499997957,
+      "error": null,
+      "answer": "**META (Meta Platforms, Inc.) \u2013 Recent Price Performance (10\u202fSep\u202f2026\u202f\u2013\u202f09\u202fOct\u202f2026)**  \n\n| Date (YYYY\u2011MM\u2011DD) | Closing Price (USD) |\n|-------------------|---------------------|\n| 2026\u201109\u201110 | 643.87 |\n| 2026\u201109\u201111 | 647.52 |\n| 2026\u201109\u201114 | 665.08 |\n| 2026\u201109\u201115 | 669.71 |\n| 2026\u201109\u201116 | 672.78 |\n| 2026\u201109\u201117 | 681.77 |\n| 2026\u201109\u201118 | 665.23 |\n| 2026\u201109\u201121 | 741.25 |\n| 2026\u201109\u201122 | 736.60 |\n| 2026\u201109\u201123 | 744.10 |\n| 2026\u201109\u201124 | 777.59 |\n| 2026\u201109\u201125 | 751.66 |\n| 2026\u201109\u201128 | 715.62 |\n| 2026\u201109\u201129 | 738.79 |\n| 2026\u201109\u201130 | 725.18 |\n| 2026\u201110\u201101 | 725.93 |\n| 2026\u201110\u201102 | 728.08 |\n| 2026\u201110\u201105 | 741.90 |\n| 2026\u201110\u201106 | 738.88 |\n| 2026\u201110\u201107 | 721.31 |\n| 2026\u201110\u201108 | 720.89 |\n| 2026\u201110\u201109 | 718.67 |\n\n### Summary of Observed Trend\n- **Start of period (10\u202fSep\u202f2026):**\u202f$643.87  \n- **Peak price (24\u202fSep\u202f2026):**\u202f$777.59 \u2013 an increase of **\u224820.8\u202f%** from the start.  \n- **Lowest price after the peak (28\u202fSep\u202f2026):**\u202f$715.62 \u2013 a decline of **\u22488.0\u202f%** from the peak.  \n- **End of period (09\u202fOct\u202f2026):**\u202f$718.67 \u2013 **\u224811.6\u202f%** higher than the opening price on 10\u202fSep\u202f2026.\n\nOverall, META exhibited strong upward momentum in mid\u2011September, reaching a high near $778, followed by a modest correction in late September and early October. The net result over the one\u2011month window is a positive return of roughly 12\u202f% despite intra\u2011period volatility.\n\n> **Visual data:** The price series is presented as a line chart (dates on the horizontal axis, closing price on the vertical axis) accompanying this analysis."
+    },
+    {
+      "query": "What is the market sentiment on Netflix based on recent news?",
+      "tool": "AI Sentiment Analysis",
+      "tool_used": "AI Sentiment Analysis",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 5.710030499998538,
+      "error": null,
+      "answer": "**Market Sentiment for Netflix**\n\n- **Sentiment Score:** \u20130.68  \n- **Sentiment Label:** Bearish  \n\nThe visual representation of this sentiment score is shown alongside this answer."
+    },
+    {
+      "query": "Is the news around Palantir bullish or bearish?",
+      "tool": "AI Sentiment Analysis",
+      "tool_used": "AI Sentiment Analysis",
+      "routed_ok": true,
+      "answer_ok": null,
+      "seconds": 5.801653900001838,
+      "error": null,
+      "answer": "The sentiment analysis for the recent Palantir news shows a **bullish** outlook, with a sentiment score of **0.72**. (The visual sentiment data is displayed alongside this answer.)"
+    }
+  ]
+}

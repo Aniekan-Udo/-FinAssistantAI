@@ -85,21 +85,26 @@ class IndexBuilder:
     def build_index(
         self, 
         documents: List, 
-        vector_store: PGVectorStore
+        vector_store: PGVectorStore,
+        insert: bool = True
     ) -> VectorStoreIndex:
-        """Build vector index from documents"""
+        """Build vector index from documents; insert=False reuses an already-populated table"""
+        from llama_index.core import StorageContext
         from llama_index.core.node_parser import SimpleNodeParser
         
-        logger.info("Building vector index")
-        
-        parser = SimpleNodeParser.from_defaults(chunk_size=256, chunk_overlap=100)
-        nodes = parser.get_nodes_from_documents(documents)
-        
+        embed_model = self.embedding_manager.get_embedding_model()
         try:
-            index = VectorStoreIndex.from_vector_store(
-                vector_store=vector_store,
-                nodes=nodes,
-                embed_model=self.embedding_manager.get_embedding_model()
+            if not insert:
+                logger.info("Reusing existing vector index")
+                return VectorStoreIndex.from_vector_store(vector_store=vector_store, embed_model=embed_model)
+
+            logger.info("Building vector index")
+            parser = SimpleNodeParser.from_defaults(chunk_size=256, chunk_overlap=100)
+            nodes = parser.get_nodes_from_documents(documents)
+            index = VectorStoreIndex(
+                nodes,
+                storage_context=StorageContext.from_defaults(vector_store=vector_store),
+                embed_model=embed_model
             )
             
             logger.info("Index created successfully")
@@ -114,7 +119,7 @@ class QueryExecutor:
     """Responsible for executing queries against the index"""
     
     @staticmethod
-    def execute_query(index: VectorStoreIndex, query: str, top_k: int = 3) -> dict:
+    def execute_query(index: VectorStoreIndex, query: str, top_k: int = 5) -> dict:
         """Execute retrieval query"""
         retriever = index.as_retriever(similarity_top_k=top_k)
         results = retriever.retrieve(query)

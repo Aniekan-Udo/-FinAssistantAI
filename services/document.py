@@ -14,7 +14,7 @@ class DocumentLoader:
 
     def __init__(self, config: RagIndexConfig):
         self.config = config
-        self.db_breaker = CircuitBreaker(fail_max=5, timeout_duration=60)
+        self.db_breaker = CircuitBreaker(fail_max=5, reset_timeout=60)
     
     @retry(
         stop=stop_after_attempt(3),

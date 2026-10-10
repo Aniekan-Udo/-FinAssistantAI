@@ -7,10 +7,10 @@ slowapi
 langchain-core
 langchain-groq
 langgraph
-llama-index-core
-llama-index-readers-file
-llama-index-embeddings-fastembed
-llama-index-vector-stores-postgres
+llama-index-core>=0.14,<0.15
+llama-index-readers-file>=0.7
+llama-index-embeddings-fastembed>=0.7
+llama-index-vector-stores-postgres>=0.9
 psycopg2-binary
 sqlalchemy
 pypdf
@@ -19,3 +19,4 @@ structlog
 tenacity
 pybreaker
 cachetools
+psycopg[binary]

@@ -11,4 +11,4 @@ wheels/
 .env
 .fastembed_cache/
 uploaded_documents/
-eval/results.json
+eval/results_*.json
