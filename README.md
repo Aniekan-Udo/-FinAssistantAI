@@ -2,7 +2,7 @@
 
 A LangGraph agent that answers investment questions by routing each query to the right source: **live Yahoo Finance market data** (11 tools) or a **pgvector knowledge base** built from an investment platform's documents. Visitors can upload their own PDF and ask questions about it.
 
-**Live demo:** _coming soon (Render)_ · The free tier sleeps when idle, so the first request can take ~50 s.
+**Live demo: https://finassistantai-hxvs.onrender.com** · Runs on Render's free tier, which sleeps when idle, so the first request can take ~50 s.
 
 ## Results
 
@@ -12,8 +12,9 @@ Measured with [`eval/run_eval.py`](eval/run_eval.py) against the running API (`o
 |---|---|---|---|---|
 | Development set (used while fixing bugs) | 30 | 29/30 (97%) | 15/15 | 4.8 s / 9.3 s |
 | Held-out set (never tuned against) | 10 | 10/10 | 6/6 | 5.3 s / 9.7 s |
+| Held-out set on the **live deployment** | 10 | 10/10 | 6/6 | 2.7 s / 3.7 s |
 
-Latency is end to end: compliance check, tool call, data fetch and answer, about three LLM calls per question. These are small eval sets, so treat them as a sanity check, not a benchmark.
+The first two rows were run locally from Lagos and the last against the Render deployment, which sits closer to Groq. Latency is end to end: compliance check, tool call, data fetch and answer, about three LLM calls per question. These are small eval sets, so treat them as a sanity check, not a benchmark.
 
 ## How it works
 
