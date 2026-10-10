@@ -33,10 +33,10 @@ def know_base_1(state: State) -> dict:
         from core.types import RagIndexConfig
         
         config = RagIndexConfig(
-            user_id="default_user", # Placeholder, ideally from state
+            user_id=state.get("kb_owner") or "demo",
             query=query,
-            data_source="filepath", # Defaulting to filepath as per likely usage
-            doc_path=doc_path or "uploaded_documents" # Default path
+            data_source="filepath",
+            doc_path=doc_path or "knowledge_base"
         )
         
         from services.rag import RagIndexOrchestrator

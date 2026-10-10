@@ -9,3 +9,6 @@ wheels/
 # Virtual environments
 .venv
 .env
+.fastembed_cache/
+uploaded_documents/
+eval/results.json

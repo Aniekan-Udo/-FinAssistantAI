@@ -1,0 +1,30 @@
+{"query": "How do I create an account?", "tool": "Platform Knowledge Base", "expect": ["BVN"]}
+{"query": "What is the daily deposit limit for a Tier 1 account?", "tool": "Platform Knowledge Base", "expect": ["300,000"]}
+{"query": "Which documents do I need for Tier 2 verification?", "tool": "Platform Knowledge Base", "expect": ["passport"]}
+{"query": "How much does it cost to deposit with my debit card?", "tool": "Platform Knowledge Base", "expect": ["1.5%"]}
+{"query": "What is the minimum deposit?", "tool": "Platform Knowledge Base", "expect": ["1,000"]}
+{"query": "If I request a withdrawal at 4pm, when will I get paid?", "tool": "Platform Knowledge Base", "expect": ["next business day"]}
+{"query": "How many free withdrawals do I get each month?", "tool": "Platform Knowledge Base", "expect": ["3"]}
+{"query": "What happens if I break my fixed savings plan early?", "tool": "Platform Knowledge Base", "expect": ["2%"]}
+{"query": "What yield does the money market fund target?", "tool": "Platform Knowledge Base", "expect": ["18"]}
+{"query": "What is the minimum amount to buy US stocks on the platform?", "tool": "Platform Knowledge Base", "expect": ["$5"]}
+{"query": "What brokerage commission do you charge on NGX trades?", "tool": "Platform Knowledge Base", "expect": ["0.75%"]}
+{"query": "How do I freeze my account if I think I've been hacked?", "tool": "Platform Knowledge Base", "expect": ["Freeze account"]}
+{"query": "What are live chat support hours?", "tool": "Platform Knowledge Base", "expect": ["8:00"]}
+{"query": "How does the referral bonus work?", "tool": "Platform Knowledge Base", "expect": ["20,000"]}
+{"query": "What is the FX spread when buying US stocks?", "tool": "Platform Knowledge Base", "expect": ["1%"]}
+{"query": "What is the current price of AAPL?", "tool": "Stock Price"}
+{"query": "How much is Nvidia stock trading for right now?", "tool": "Stock Price"}
+{"query": "Tell me about Microsoft's business", "tool": "Company Information"}
+{"query": "What does Tesla do as a company?", "tool": "Company Information"}
+{"query": "When is the next dividend date for Coca-Cola (KO)?", "tool": "Dividend & Earnings"}
+{"query": "When does Apple report earnings next?", "tool": "Dividend & Earnings"}
+{"query": "Who are the top mutual fund holders of MSFT?", "tool": "Mutual Fund Holders"}
+{"query": "Which institutions own the most TSLA shares?", "tool": "Institutional Holders"}
+{"query": "What are the recent analyst upgrades and downgrades for GOOGL?", "tool": "Stock Grades"}
+{"query": "Show me the stock split history of NVDA", "tool": "Stock Splits"}
+{"query": "Any recent news about Amazon?", "tool": "Stock News"}
+{"query": "Show me a price chart of AMD over the last few months", "tool": "Price History Chart"}
+{"query": "How has META stock performed historically?", "tool": "Price History Chart"}
+{"query": "What is the market sentiment on Netflix based on recent news?", "tool": "AI Sentiment Analysis"}
+{"query": "Is the news around Palantir bullish or bearish?", "tool": "AI Sentiment Analysis"}

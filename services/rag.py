@@ -204,6 +204,13 @@ class RagIndexOrchestrator:
         self.index_builder = IndexBuilder(self.embedding_manager)
         self.query_executor = QueryExecutor()
     
+    def _source_signature(self) -> str:
+        path = self.config.doc_path
+        if self.config.data_source != "filepath" or not path or not os.path.isdir(path):
+            return str(path)
+        mtimes = [os.path.getmtime(os.path.join(path, f)) for f in os.listdir(path)]
+        return f"{path}:{max(mtimes, default=0)}"
+
     @retry(
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=1, min=2, max=10),
@@ -215,7 +222,8 @@ class RagIndexOrchestrator:
         Main entry point for creating knowledge base and executing query.
         Orchestrates the entire workflow.
         """
-        cache_key = f"{self.config.user_id}_{self.config.data_source}"
+        # Include the folder and its newest file time so a new upload never hits a stale index
+        cache_key = f"{self.config.user_id}_{self.config.data_source}_{self._source_signature()}"
         
         # Check cache first
         if cache_key in _vectorstore_cache:

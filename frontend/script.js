@@ -1,4 +1,21 @@
-const API_URL = 'http://localhost:8000';
+// Same origin: the FastAPI app serves this frontend
+const API_URL = '';
+
+// Per-browser session so each visitor gets their own uploaded knowledge base
+function getSessionId() {
+    const fresh = () => crypto.randomUUID().replace(/-/g, '');
+    try {
+        let id = localStorage.getItem('finassist_session');
+        if (!id) {
+            id = fresh();
+            localStorage.setItem('finassist_session', id);
+        }
+        return id;
+    } catch (e) {
+        return window.__finassistSession || (window.__finassistSession = fresh());
+    }
+}
+const SESSION_ID = getSessionId();
 
 // DOM Elements
 const chatMessages = document.getElementById('chat-messages');
@@ -80,7 +97,7 @@ async function loadExampleQueries() {
 // Check current document status
 async function checkDocStatus() {
     try {
-        const response = await fetch(`${API_URL}/document/status`);
+        const response = await fetch(`${API_URL}/document/status?session_id=${SESSION_ID}`);
         if (response.ok) {
             const data = await response.json();
             if (data.has_document) {
@@ -191,7 +208,7 @@ queryForm.onsubmit = async (e) => {
         const response = await fetch(`${API_URL}/query`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ query })
+            body: JSON.stringify({ query, session_id: SESSION_ID })
         });
         
         removeTypingIndicator();
@@ -200,6 +217,8 @@ queryForm.onsubmit = async (e) => {
             const data = await response.json();
             console.log("DEBUG: Query Response Data:", data);
             addMessage(data.response, true, data.tool_used, data.chart_data, data.sentiment_score, data.sentiment_label);
+        } else if (response.status === 429) {
+            addMessage('Demo rate limit reached. Please wait a minute and try again.', true);
         } else {
             addMessage('Sorry, I encountered an error processing that request.', true);
         }
@@ -226,7 +245,7 @@ deleteDocBtn.onclick = async () => {
     }
     
     try {
-        const response = await fetch(`${API_URL}/document`, {
+        const response = await fetch(`${API_URL}/document?session_id=${SESSION_ID}`, {
             method: 'DELETE'
         });
         
@@ -255,6 +274,7 @@ fileUpload.onchange = async () => {
     
     const formData = new FormData();
     formData.append('file', file);
+    formData.append('session_id', SESSION_ID);
     
     docNameDisplay.textContent = 'Uploading...';
     

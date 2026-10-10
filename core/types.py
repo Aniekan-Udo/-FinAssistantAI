@@ -8,6 +8,7 @@ class State(TypedDict):
     messages: Annotated[list, add_messages]
     tool_output: Optional[str]
     doc_path: Optional[str]
+    kb_owner: Optional[str]
 
 
 class RagIndexConfig(BaseModel):

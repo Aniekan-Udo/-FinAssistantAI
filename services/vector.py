@@ -2,7 +2,7 @@ from typing import List
 from threading import RLock
 from cachetools import TTLCache
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
-from langchain_huggingface import HuggingFaceEmbeddings
+from llama_index.embeddings.fastembed import FastEmbedEmbedding
 from llama_index.vector_stores.postgres import PGVectorStore
 from llama_index.core import VectorStoreIndex
 
@@ -40,7 +40,8 @@ class EmbeddingManager:
             
             try:
                 logger.info("Setting up embedding model")
-                embed_model = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+                # ONNX runtime instead of torch: same bge-small model, fits a 512MB instance
+                embed_model = FastEmbedEmbedding(model_name="BAAI/bge-small-en-v1.5")
                 _cache_embed[cache_key] = embed_model
                 logger.info("Embedding model created and cached")
                 return embed_model
